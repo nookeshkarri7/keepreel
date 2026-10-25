@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keepreel: move your video library to storage you own</title>
+<meta name="description" content="Keepreel for Windows and Android moves a Vimeo library to your own Cloudflare R2, Backblaze B2 or Bunny bucket and gives you a new embed code for every video. Free for 5 videos, Pro $99 once.">
+<meta property="og:title" content="Keepreel: Host Your Own Videos">
+<meta property="og:description" content="Move your Vimeo library to a bucket you own, with new embed codes. Pay once.">
+<meta property="og:image" content="https://nookeshkarri7.github.io/keepreel/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;800&display=swap" rel="stylesheet">
+<style>
+:root { --ground:#F4F2ED; --panel:#FFFFFF; --ink:#16181B; --muted:#5B6068; --line:#DAD6CE; --teal:#0F6E6A; --teal-ink:#FFFFFF; color-scheme: light dark; }
+@media (prefers-color-scheme: dark) { :root { --ground:#121416; --panel:#1B1E21; --ink:#ECEAE5; --muted:#A3A8AE; --line:#2E3236; --teal:#5CC7BE; --teal-ink:#0B0C0D; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 500 17px/1.6 "Archivo", system-ui, sans-serif; }
+a { color: var(--teal); }
+main { max-width: 880px; margin: 0 auto; padding: 32px 20px 56px; }
+header { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 22px; }
+header img { width: 40px; height: 40px; border-radius: 9px; }
+h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.08; letter-spacing: -0.02em; margin: 28px 0 14px; }
+h2 { font-size: 26px; margin: 40px 0 10px; letter-spacing: -0.01em; }
+p, li { color: var(--muted); }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 22px 0; }
+.btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border-radius: 10px; font-weight: 600; text-decoration: none; background: var(--teal); color: var(--teal-ink); }
+.btn.alt { background: var(--panel); color: var(--ink); border: 1px solid var(--line); }
+.video { position: relative; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: #000; }
+.video button { all: unset; cursor: pointer; position: absolute; inset: 0; display: grid; place-items: center; }
+.video button img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.video .play { position: relative; width: 72px; height: 72px; border-radius: 50%; background: rgba(255,255,255,.94); display: grid; place-items: center; }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.shots { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); gap: 16px; margin-top: 20px; }
+.shots img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--line); }
+footer { margin-top: 48px; font-size: 14px; color: var(--muted); }
+@media (max-width: 640px) { .shots { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<main>
+  <header><img src="assets/icon.png" alt="" width="40" height="40">Keepreel</header>
+  <h1>Host your own videos. Keep every embed.</h1>
+  <p>Keepreel moves a Vimeo library into a storage bucket you own, then hands you a new embed code for every video. It is a one-time purchase for people whose hosting bill jumped: wedding and corporate videographers, small studios, schools and photographers.</p>
+  <div class="cta">
+    <a class="btn" href="https://apps.microsoft.com/detail/9N48HXGF5CMC">Get it from Microsoft</a>
+    <a class="btn alt" href="https://play.google.com/store/apps/details?id=com.nktools.keepreel">Get it on Google Play</a>
+    <a class="btn alt" href="https://keepreel.pages.dev/">Website</a>
+  </div>
+
+  <div class="video" data-yt="g4jncWRvmYw">
+    <button type="button" aria-label="Play the Keepreel demo video (loads YouTube)">
+      <img src="assets/video-poster.jpg" alt="" loading="lazy">
+      <span class="play"><svg width="26" height="28" viewBox="0 0 22 24" aria-hidden="true"><path d="M3 2l17 10L3 22z" fill="#16181B"/></svg></span>
+    </button>
+  </div>
+
+  <h2>How it works</h2>
+  <ol>
+    <li>Connect your own Vimeo access token and a Cloudflare R2, Backblaze B2 or Bunny Storage bucket.</li>
+    <li>Keepreel downloads each video, makes it stream-ready on your device (HLS, no re-encoding, no quality loss) and uploads it to your bucket.</li>
+    <li>Copy the new embed codes, or export a CSV of old and new codes for find-and-replace on your sites.</li>
+  </ol>
+  <div class="shots">
+    <img src="assets/windows-library.png" alt="Keepreel on Windows moving a library of videos" width="1280" height="720" loading="lazy">
+    <img src="assets/android-library.png" alt="Keepreel on Android" width="432" height="768" loading="lazy">
+  </div>
+
+  <h2>Pricing</h2>
+  <p>Windows: your first 5 videos free; Keepreel Pro is $99 once for the whole library, on 2 computers. Android: free with ads, with a short ad for every 5 more videos.</p>
+
+  <h2>Good to know</h2>
+  <ul>
+    <li>No Keepreel server: files go from Vimeo to your device to your bucket.</li>
+    <li>Links are unguessable but not password-protected.</li>
+    <li>No view counts, comments or client review tools.</li>
+    <li>Downloading needs a paid Vimeo plan, so move before your renewal date.</li>
+  </ul>
+
+  <footer>
+    <a href="https://keepreel.pages.dev/privacy/">Privacy policy</a> · <a href="mailto:anithabheesetty@gmail.com">Support</a> · © 2026 NK Tools. Keepreel is not affiliated with or endorsed by Vimeo.
+  </footer>
+</main>
+<script>
+document.querySelectorAll('.video[data-yt]').forEach(function (box) {
+  box.querySelector('button').addEventListener('click', function () {
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + box.getAttribute('data-yt') + '?autoplay=1&rel=0';
+    f.title = 'Keepreel demo video';
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen = true;
+    box.replaceChildren(f);
+  });
+});
+</script>
+</body>
+</html>
